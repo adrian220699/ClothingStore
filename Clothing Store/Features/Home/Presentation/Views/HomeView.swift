@@ -6,70 +6,56 @@
 //
 import UIKit
 
-class HomeView : UIView {
-    
-    //MARK: - Views
-    
-    private let labelView : Label = {
-       
+final class HomeView: UIView {
+
+    // MARK: - Views
+
+    private let labelView: Label = {
         let view = Label()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
-        
     }()
-    
- 
-    //MARK: - Initializers
-    
+
+    // MARK: - Initializers
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-       configureView()
-       buildHierachy()
+
+        configureView()
+        buildHierarchy()
+        setupConstraints()
     }
-    
+
     required init?(coder: NSCoder) {
-        fatalError()
+        fatalError("init(coder:) has not been implemented")
     }
-    
-    //MARK: - Private Methods
-    
-    func configureView() {
-        
+
+    // MARK: - Private Methods
+
+    private func configureView() {
         backgroundColor = .systemBackground
-        
-        
     }
-    
-    func buildHierachy() {
-        
+
+    private func buildHierarchy() {
         addSubview(labelView)
-        
     }
-    
-    func setupConstrains() {
-        
+
+    private func setupConstraints() {
         NSLayoutConstraint.activate([
-            
             labelView.topAnchor.constraint(
                 equalTo: safeAreaLayoutGuide.topAnchor,
                 constant: 20
             ),
-            
+
             labelView.leadingAnchor.constraint(
                 equalTo: leadingAnchor,
                 constant: 25
             ),
-            
+
             labelView.trailingAnchor.constraint(
                 equalTo: trailingAnchor,
                 constant: -25
-            ),
-            
-            
+            )
         ])
-        
     }
-    
-    
 }
