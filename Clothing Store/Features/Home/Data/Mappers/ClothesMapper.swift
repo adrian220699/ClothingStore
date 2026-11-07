@@ -8,7 +8,7 @@
 extension ClothesDTOs {
     
     
-    func toListDomain() -> Clothes {
+    func toDomain() -> Clothes {
         
         return Clothes(
                        id: id,
